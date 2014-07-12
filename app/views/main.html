@@ -19,6 +19,8 @@
     {{stream}}
   </div>
 
+  <input type="text" ng-model="updateInterval">
+
 </div>
 
 <div class="row marketing">
@@ -29,7 +31,7 @@
         <p class="streamName">
           <a href="http://twitch.tv/{{ stream.stream.channel.display_name }}/">{{ stream.stream.channel.status }}</a>
         </p>
-        / {{ stream.stream.viewers }} viewers
+        / {{ stream.stream.viewers }} viewers - {{ stream.stream.channel.name }}
       </div>
       <div class="col-xs-4">
         <img ng-src="{{ stream.stream.preview.medium }}">

@@ -20,21 +20,24 @@ angular.module('ti4StreamsApp')
     ];
 
     $scope.streamsList = [];
+    $scope.updateInterval = 10000;
 
     $scope.$on('event', function(event, data) {
       $scope.streamOb = data;
       $scope.streamsList.push(data);
       console.log(data);
     });
+    
+    /*
     $interval(function() {
       $scope.streamsList = [];
       for (var i = 0; i < $scope.allStreams.length; i++) {
         streams.getStreamData($scope.allStreams[i]);
       }
-    }, 10000);
+    }, $scope.updateInterval);
+    */
 
-
-    //for (var i in $scope.streamsList) {
-    //  $scope.streamObjs.push(streams.getStreamData($scope.streamsList[i]));
-    //}
+    for (var i = 0; i < $scope.allStreams.length; i++) {
+      streams.getStreamData($scope.allStreams[i]);
+    }
   });
